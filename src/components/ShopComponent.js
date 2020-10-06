@@ -75,16 +75,14 @@ class Shop extends Component {
             return (
                 <div key={decoration.id} className='container'>
                     <div className='row'>
-                        <div className='col'>
-                            <Card>
-                                <CardHeader>{decoration.name}</CardHeader>
-                                <CardBody>
-                                    <CardImg width='100%' src={decoration.image} alt={decoration.description} />
-                                </CardBody>
-                                <CardFooter>{decoration.description}</CardFooter>
-                                <Button color='secondary'>Add To Cart</Button>
-                            </Card>
-                        </div>
+                        <Card className='bg-dark'>
+                            <CardHeader className='bg-dark'>{decoration.name}</CardHeader>
+                            <CardBody>
+                                <CardImg width='100%' src={decoration.image} alt={decoration.description} />
+                            </CardBody>
+                            <CardFooter>{decoration.description}</CardFooter>
+                            <Button color='success'>Add To Cart</Button>
+                        </Card>
                     </div>
                 </div>
             );

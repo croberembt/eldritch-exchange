@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
 import Shop from './ShopComponent';
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
+import Home from './HomeComponent';
+import Contact from './ContactComponent';
+import About from './AboutComponent';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 class Main extends Component {
     constructor(props) {
@@ -9,14 +14,24 @@ class Main extends Component {
     }
 
     render() {
+
+        const HomePage = () => {
+            return (
+                <Home />
+            );
+        };
+
         return (
             <div>
-                <Navbar dark color="secondary">
-                    <div className="container">
-                        <NavbarBrand href="/">Eldritch Exchange</NavbarBrand>
-                    </div>
-                </Navbar>
-                <Shop />
+                <Header />
+                <Switch>
+                    <Route path='/home' component={HomePage} />
+                    <Route exact path='/shop' render={() => <Shop />} />
+                    <Route exact path='/contactus' render={() => <Contact />} />
+                    <Route exact path='/aboutus' render={() => <About />} />
+                    <Redirect to='/home' />
+                </Switch>
+                <Footer />
             </div>
         );
     };
