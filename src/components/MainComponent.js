@@ -7,6 +7,7 @@ import Contact from './ContactComponent';
 import About from './AboutComponent';
 import Jumbo from './JumbotronComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import Background from '../backgrounds/pumpkin-head.jpg';
 
 class Main extends Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class Main extends Component {
         };
 
         return (
-            <div>
+            <div className='container-fluid' style={{ backgroundImage: `url(${Background})`}}>
                 <Header />
                 <Jumbo />
                 <Switch>

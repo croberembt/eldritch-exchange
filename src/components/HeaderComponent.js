@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
-import { Nav, Navbar, NavbarToggler, Collapse, NavItem, Jumbotron, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Nav, Navbar, NavbarToggler, Collapse, NavItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+
 
 class Header extends Component {
 
@@ -38,30 +39,30 @@ class Header extends Component {
 
     render() {
         return (
-            <div className='header bg-dark container-fluid'>
-                <Navbar dark expand="md" className='bg-dark'>
+            <div className='header container-fluid' style={{background: 'transparent'}}>
+                <Navbar dark expand="md">
                     <div className="container-fluid">
                         <NavbarToggler onClick={this.toggleNav} />
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/home">
-                                        <i className="fa fa-home fa-lg" /> Home
+                                        Home
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/shop">
-                                        <i className="fa fa-list fa-lg" /> Shop
+                                        Shop
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/aboutus">
-                                        <i className="fa fa-info fa-lg" /> About
+                                        About
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/contactus">
-                                        <i className="fa fa-address-card fa-lg" /> Contact Us
+                                        Contact Us
                                     </NavLink>
                                 </NavItem>
                             </Nav>
@@ -75,21 +76,21 @@ class Header extends Component {
                 </Navbar>
 
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
+                    <ModalHeader toggle={this.toggleModal}>Welcome Back!</ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.handleLogin}>
                             <FormGroup>
-                                <Label htmlFor="username">Username</Label>
+                                <Label htmlFor="username">Username:</Label>
                                 <Input type="text" id="username" name="username"
                                     innerRef={input => this.username = input} />
                             </FormGroup>
                             <FormGroup>
-                                <Label htmlFor="password">Password</Label>
+                                <Label htmlFor="password">Password:</Label>
                                 <Input type="password" id="password" name="password"
                                     innerRef={input => this.password = input} />
                             </FormGroup>
                             <FormGroup check>
-                                <Label check>
+                                <Label check style={{paddingBottom: '1rem'}}>
                                     <Input type="checkbox" name="remember"
                                         innerRef={input => this.remember = input} />
                                     Remember me

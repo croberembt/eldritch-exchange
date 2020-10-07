@@ -14,7 +14,7 @@ class Shop extends Component {
                 },
                 {
                   id: 1,
-                  name: "Smoking Jack-O'-Lantern",
+                  name: "Jack-O'-Lantern",
                   image: 'assets/images/smoking-jack-o-lantern.jpg',
                   description: "Realistic jack-o'-lantern emits ethereal fog, batteries included."
                 },
@@ -44,9 +44,9 @@ class Shop extends Component {
                 },
                 {
                     id: 6,
-                    name: 'Room 13 Print',
+                    name: 'Haunted Room 13 Print',
                     image: 'assets/images/door-13-print.jpg',
-                    description: "24' by 18' print."
+                    description: "24' by 18' print, includes black frame and white matte."
                 },
                 {
                     id: 7,
@@ -56,9 +56,9 @@ class Shop extends Component {
                 },
                 {
                     id: 8,
-                    name: 'Halloween Cookie Cutter Set',
+                    name: 'Cookie Cutter Set',
                     image: 'assets/images/halloween-cookie-cutter.jpg',
-                    description: 'Halloween cookie cutter set includes cat, ghost, skeleton, and witch.'
+                    description: 'Cookie cutter set includes cat, ghost, skeleton, and witch.'
                 },
                 {
                     id: 9,
@@ -73,15 +73,15 @@ class Shop extends Component {
     render() {
         const shopList = this.state.decorations.map(decoration => {
             return (
-                <div key={decoration.id} className='container'>
+                <div key={decoration.id} className='col-md-4 m-3'>
                     <div className='row'>
-                        <Card className='bg-dark'>
-                            <CardHeader className='bg-dark'>{decoration.name}</CardHeader>
+                        <Card className='shopListCard' style={{ background: 'black' }}>
+                            <CardHeader style={{ background: 'black' }}>{decoration.name}</CardHeader>
                             <CardBody>
                                 <CardImg width='100%' src={decoration.image} alt={decoration.description} />
                             </CardBody>
                             <CardFooter>{decoration.description}</CardFooter>
-                            <Button color='success'>Add To Cart</Button>
+                            <Button style={{ background: 'orangered', color: 'black' }}>Add To Cart</Button>
                         </Card>
                     </div>
                 </div>
@@ -89,8 +89,10 @@ class Shop extends Component {
         });
 
         return (
-            <div className='container'>
+            <div className='container-fluid'>
+                <div className='row'>
                     {shopList}
+                </div>
             </div>
         );
     }
